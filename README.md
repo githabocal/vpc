@@ -71,7 +71,7 @@ Note: Bastion-host is our VM - Bastion host has been used for private connectivi
 - Make sure that `Instance state` is **`Running`**
 - **Now we are ready to test connectivity!**
 
-# Testing Connectivity:
+# <h3>Testing Connectivity:
 - Select the created instance and copy the **`Public IPv4 address`**
 - Open the terminal and run `ssh -i ~/Downloads/bashion.pem ec2-user@<the copied public IPv4 address>`
 - If you have permission issue due to read and write, please run `chmod 400 ~/Downloads/bastion.pem` to update your permission with `READ ONLY` then run `ssh -i ~/Downloads/bashion.pem ec2-user@<the copied public IPv4 address>` again to verify the connectivity!
