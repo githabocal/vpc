@@ -1,12 +1,14 @@
 # VPC - Setup and Test Connection
 
-First step to do is creating **`VPC`** then apply the components of VPC that are as follows;
+First step to do is creating **`VPC`** then apply the necessary components of VPC that are as follows;
 - *Subnets*
 - *Internet Gateways (igw)*
 - *Route Tables*
 - *NAT Gateways*
 - *Network ACLs*
   
+Note: Bastion-host is our VM - Bastion host has been used for private connectivity from public to private
+
 # <h3>Creating VPC:
 - Head to Your VPCs in AWS and choose **`Create VPC`** on the top right of the page
 - **`VPC only`** must be selected for **`resources to create`**
@@ -42,10 +44,27 @@ First step to do is creating **`VPC`** then apply the components of VPC that are
 - Then head to **`Subnet associations`** and click on **`Edit subnet associations`** and choose *all public subnets* which are *`public-1`* and *`public-2`* and then click on **`Save associations`**
 - And now, we must create another route table for private but before that, we must create **`Network ACLs`**
 
-# <h3> Creating Network ALCs(NACL):
-- Head to **`Network ACLs`** under `Virtual private cloud` dropdown and click on **`Create network ACL`** on the top right of the page
+# <h3>Creating Network ALCs(NACL):
+- Head to **`Network ACLs`** under `Security` dropdown and click on **`Create network ACL`** on the top right of the page
 - Then set a name as **`NACL-public-1`** and choose the selected VPC then click on **`Create network ACL`**
 - And now, we must modify the created NACL, thus we need to head to **`Inbound rules`** and click on **`Edit inbound rules`** then click on **`Add new rule`**
 - Set `Rule Number` as **`110`**, and update **`Port range`** with **`22`** and we use our **local public IP - `108.53.13.199/32` - for `Source`** and the click on **`Save changes`**
 - Head to **`Outbound rules`** and click on **`Edit outbound rules`** the click on **`Add new rule`**
 - Set `Rule number` as **`110`**, and update **`Port range`** with **`1024-65535`** and we use our **local public IP - `108.53.13.199/32` - for `Source`** and the click on **`Save changes`**
+
+# <h3>Creating Security Groups:
+-  Head to **`Security groups`** under `Security` dropdown and click on **`Create security group`** on the top right of the page 
+-  Set a security group name and choose the selected VPC and then click on **`Add rule`** for `Inbound rules` and update `Port range` with **`22`** and `Source` with **`My IP`** then click on **`Create security group`**
+- The security group will be used for `Network Setting in EC2`
+
+# <h3>Spin VM - Launch Instance:
+- Head to **`EC2`** in AWS then click on **`Launch Instance`**
+- Set a name for EC2 and scroll down to **`Key pair`** then click on **`Create new key pair`**
+- Set a key pair name and `Key pair type` and `Private key file format` must be selected **`RSA`** and **`.pem`** respectively
+- Then click on **`Create key pair`**
+- In Network Setting, click on **`Edit`** and choose the selected VPC then pick the `subnet` for **`public-1`**
+- Then select **`Select existing security group`** and choose the `created security group` in Common security groups
+- Then click on **`Launch instance`**
+- And `Launch instance` must be initiated successfully!
+- Then click on `View all instances` to visualize the instance and its status
+- Make sure that `Instance state` is **`Running`**
