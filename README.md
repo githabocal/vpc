@@ -7,7 +7,7 @@ Components of VPC are as follows;
 - *NAT Gateways*
 - *Network ACLs*
   
-# <span style="text-decoration:underline"><h3>Creating VPC:</span>
+# <h3 span style="text-decoration:underline">Creating VPC:</span>
 - Head to Your VPCs in AWS and choose **`Create VPC`** on the top right of the page
 - **`VPC only`** must be selected for **`resources to create`**
 - Set a name for VPC then enter **`IPv4 CIDR`** as **`192.168.0.0/24`**. We prefer **`/24`** as CIDR because it is more secure and number of IPs limited
