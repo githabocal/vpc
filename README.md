@@ -1,12 +1,12 @@
 # VPC - Setup and Test Connection
 
 Components of VPC are as follows;
-*- Subnets
-- Internet Gateways
-- Route Tables
-- NAT Gateways
-- Network ACLs*
-
+- *Subnets*
+- *Internet Gateways*
+- *Route Tables*
+- *NAT Gateways*
+- *Network ACLs*
+  
 First thing to do is to create a **`VPC`** as follows;
 - Head to Your VPCs in AWS and choose **`Create VPC`** on the top right of the page
 - **`VPC only`** must be selected for **`resources to create`**
