@@ -34,3 +34,12 @@ First step to do is creating **`VPC`** then apply the components of VPC that are
 - Then set a name for internet gateway and click on **`Create internet gateway`**
 - After creating a internet gateway, we must attach it to the **`created VPC`** and thus click on **Actions** dropdown and choose **`Attach to VPC`** then select the **`created VPC`** and click on **`Attach internet gateway`**
 - Then once you head to internet gateways, you must be able to verify that **`State is Attached`**
+
+# <h3>Creating Route Tables:
+- Head to **`Route tables`** under `Virtual private cloud` dropdown and click on **`Create route table`** on the top right of the page
+- Then set a name for public - route table and choose the selected VPC then click on **`Create route table`**
+- Then head to **`Edit routes`** and click on **`Add route`** and set destination as **`0.0.0.0/0`** and target as the **`created internet gateway`** and click on **`Save changes`**
+- Then head to **`Subnet associations`** and click on **`Edit subnet associations`** and choose *all public subnets* which are *`public-1`* and *`public-2`* and then click on **`Save associations`**
+- And now, we must create another route table for private but before that, we must create **`Network ACLs`**
+
+# <h3> Creating Network ALCs(NACL):
