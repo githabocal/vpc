@@ -13,3 +13,8 @@ Components of VPC are as follows;
 - Set a name for VPC then enter **`IPv4 CIDR`** as **`192.168.0.0/24`**. We prefer **`/24`** as **_CIDR_** because it is more secure and number of IPs limited
 - **`Tenancy`** must be selected as **`Default`**; `NOT Dedicated`
 - Then click on **`Create VPC`**
+- Now **_`VPC`_** is created successfully
+- Next step is creating **`Subnets`**
+
+# <h3>Creating Subnets:
+- 
