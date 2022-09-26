@@ -30,6 +30,7 @@ Note: Bastion-host is our VM - Bastion host has been used for private connectivi
 - Then set a subnet name for *`private-2`* and availability zone **`us-east-1b`** then choose **`IPv4 CIDR block`** as **`192.168.0.192/26`**
 - Then click on **`Create subnet`** button
 - 2(two) public and 2(two) private subnets have been created successfully!
+- After all, select subnet **`public-1`** and click on `Actions` dropdown and choose **`Edit subnet settings`**
 
 # <h3>Creating Internet Gateway(igw):
 - Head to **`Internet gateways`** under `Virtual private cloud` dropdown and click on **`Create internet gateway`** on the top right of the page
@@ -68,3 +69,10 @@ Note: Bastion-host is our VM - Bastion host has been used for private connectivi
 - And `Launch instance` must be initiated successfully!
 - Then click on `View all instances` to visualize the instance and its status
 - Make sure that `Instance state` is **`Running`**
+- **Now we are ready to test connectivity!**
+
+# Testing Connectivity:
+- Select the created instance and copy the **`Public IPv4 address`**
+- Open the terminal and run `ssh -i ~/Downloads/bashion.pem ec2-user@<the copied public IPv4 address>`
+- If you have permission issue due to read and write, please run `chmod 400 ~/Downloads/bastion.pem` to update your permission with `READ ONLY` then run `ssh -i ~/Downloads/bashion.pem ec2-user@<the copied public IPv4 address>` again to verify the connectivity!
+- In addition, you may also run `whoami` to verify **`ec2-user`**
