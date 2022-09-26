@@ -33,4 +33,4 @@ First step to do is creating **`VPC`** then apply the components of VPC that are
 - Head to **`Internet gateways`** under `Virtual private cloud` dropdown and click on **`Create internet gateway`** on the top right of the page
 - Then set a name for internet gateway and click on **`Create internet gateway`**
 - After creating a internet gateway, we must attach it to the **`created VPC`** and thus click on **Actions** dropdown and choose **`Attach to VPC`** then select the **`created VPC`** and click on **`Attach internet gateway`**
-- Then once you head to internet gateways, you must be able to see that `State is Attached`
+- Then once you head to internet gateways, you must be able to see that **`State is Attached`**
