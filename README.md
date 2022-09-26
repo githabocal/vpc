@@ -43,3 +43,9 @@ First step to do is creating **`VPC`** then apply the components of VPC that are
 - And now, we must create another route table for private but before that, we must create **`Network ACLs`**
 
 # <h3> Creating Network ALCs(NACL):
+- Head to **`Network ACLs`** under `Virtual private cloud` dropdown and click on **`Create network ACL`** on the top right of the page
+- Then set a name as **`NACL-public-1`** and choose the selected VPC then click on **`Create network ACL`**
+- And now, we must modify the created NACL, thus we need to head to **`Inbound rules`** and click on **`Edit inbound rules`** then click on **`Add new rule`**
+- Set `Rule Number` as **`110`**, and update **`Port range`** with **`22`** and we use our **local public IP - `108.53.13.199/32` - for `Source`** and the click on **`Save changes`**
+- Head to **`Outbound rules`** and click on **`Edit outbound rules`** the click on **`Add new rule`**
+- Set `Rule number` as **`110`**, and update **`Port range`** with **`1024-65535`** and we use our **local public IP - `108.53.13.199/32` - for `Source`** and the click on **`Save changes`**
