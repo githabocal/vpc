@@ -1,5 +1,10 @@
 # VPC - Setup and Test Connection
 
+The diagram attached below;
+
+![VPC Secure access](https://user-images.githubusercontent.com/86754468/192643693-298bef0c-1c45-4190-b70f-d67be7979b39.png)
+
+
 First step to do is creating **`VPC`** then apply the necessary components of VPC that are as follows;
 - *Subnets*
 - *Internet Gateways (igw)*
