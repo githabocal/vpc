@@ -6,7 +6,7 @@ The diagram attached below;
 
 
 First step to do is creating **`VPC`** then apply the necessary components of VPC that are as follows;
-- <a href="[doc:introduction](https://github.com/githabocal/vpc/blob/main/README.md#creating-subnets)" target="_blank">*Subnets*</a>
+- <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#creating-subnets" target="_blank">*Subnets*</a>
 - *Internet Gateways (igw)*
 - *Route Tables*
 - *NAT Gateways*
