@@ -11,6 +11,9 @@ First step to do is creating **`VPC`** then apply the necessary components of VP
 - <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#creating-route-tables" target="_blank">*Route Tables*</a>
 - <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#creating-nat-gateways" target="_blank">*NAT Gateways*</a>
 - <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#creating-network-alcsnacl" target="_blank">*Network ACLs*</a>
+- <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#creating-security-groups" target="_blank">*Security Groups*</a>
+- <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#spin-vm---launch-instance" target="_blank">*Launch Instance*</a> 
+- <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#testing-connectivity" target="_blank">*Testing Connectivity*</a>  
   
 Notes: 
 - Bastion-host is our VM - Bastion host has been used for private connectivity from public to private
