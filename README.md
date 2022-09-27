@@ -64,7 +64,9 @@ Notes:
 
 # <h3>Creating Security Groups:
 -  Head to **`Security groups`** under `Security` dropdown and click on **`Create security group`** on the top right of the page 
--  Set a security group name and choose the selected VPC and then click on **`Add rule`** for `Inbound rules` and update `Port range` with **`22`** and `Source` with **`My IP`** then click on **`Create security group`**
+-  Set a security group name for `public` and choose the selected VPC and then click on **`Add rule`** for `Inbound rules` and update `Port range` with **`22`** and `Source` with **`My IP`** then click on **`Create security group`**
+-  And we must also create an another security group for `private` and click on **`Create security group`** and set a security group name for `private` and choose the selected VPC and then click on **`Add rule`** for `Inbound rules` and update `Port range` with **`22`** and `Source` with **`192.168.0.0/24`** then click on **`Create security group`**
+-  Then head to Outbound rules and click on **`Edit outbound rules`** and click on `Add rule` and select **`HTTPS`** and **`All ICMP - IPv4`** for `Type` and **`0.0.0.0/0`** for `Destination` and then click on **`Save rules`**
 - The security group will be used for `Network Setting in EC2`
 
 # <h3>Spin VM - Launch Instance:
@@ -76,6 +78,12 @@ Notes:
 - Then select **`Select existing security group`** and choose the `created security group` in Common security groups
 - Then click on **`Launch instance`**
 - And `Launch instance` must be initiated successfully!
+- Then click on `View all instances` to visualize the instance and its status
+- Make sure that `Instance state` is **`Running`**
+- Now we must create another instance for `private` and click on **`Launch instance`** and set a name and scroll down to **`Key Pair`** and choose **`bastion`** which is already created 
+- In Network Setting, click on **`Edit`** and choose the selected VPC then pick the `subnet` for **`private-1`** and Auto-assign public IP must be selected `Disable` by default
+- Then select **`Select existing security group`** and choose the `created security group for private` in Common security groups
+- Then click on **`Launch instance`**
 - Then click on `View all instances` to visualize the instance and its status
 - Make sure that `Instance state` is **`Running`**
 - **Now we are ready to test connectivity!**
