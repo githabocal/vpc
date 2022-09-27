@@ -115,8 +115,7 @@ IPv4 for public ec2 instance>` --> Login to Instance
 
 - At the end, we may run `ping 8.8.8.8` or `ping google.com` or `ping -c 3 amazon.com` in the terminal and verify **`0% packet loss`**
   
-  
-  ![Uploading Screen Shot 2022-09-27 at 1.45.25 AM.png…]()
+  <img width="472" alt="Screen Shot 2022-09-27 at 1 45 25 AM" src="https://user-images.githubusercontent.com/86754468/192643386-e6cecddd-6db6-40ea-9adb-b61ed2fcac48.png">
 
   ![Screen Shot 2022-09-27 at 2 25 03 AM](https://user-images.githubusercontent.com/86754468/192643157-9a096161-3ba7-4fea-8419-ff395076c5cf.png)
 
