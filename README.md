@@ -7,7 +7,9 @@ First step to do is creating **`VPC`** then apply the necessary components of VP
 - *NAT Gateways*
 - *Network ACLs*
   
-Note: Bastion-host is our VM - Bastion host has been used for private connectivity from public to private
+Notes: 
+- Bastion-host is our VM - Bastion host has been used for private connectivity from public to private
+- NACL works in subnet level; not EC2 level
 
 # <h3>Creating VPC:
 - Head to Your VPCs in AWS and choose **`Create VPC`** on the top right of the page
@@ -52,10 +54,19 @@ Note: Bastion-host is our VM - Bastion host has been used for private connectivi
 - Set `Rule Number` as **`110`**, and update **`Port range`** with **`22`** and we use our **local public IP - `108.53.13.199/32` - for `Source`** and the click on **`Save changes`**
 - Head to **`Outbound rules`** and click on **`Edit outbound rules`** the click on **`Add new rule`**
 - Set `Rule number` as **`110`**, and update **`Port range`** with **`1024-65535`** and we use our **local public IP - `108.53.13.199/32` - for `Source`** and the click on **`Save changes`**
+- Click on **`Create network ACL`** to create private NACL then set a name and choose the selected VPC and click on **`Create network ACL`**
+- And now, we must modify the created NACL, thus we need to head to **`Inbound rules`** and click on **`Edit inbound rules`** then click on **`Add new rule`**
+- Set `Rule Number` as **`110`**, and update **`Port range`** with **`22`** and `192.168.0.0/24` - for `Source`** and the click on **`Add new rule`**
+- And set `Rule Number` as **`120`**, and update **`Type`** with **`Custom ICMP - IPv4`** and click on **`Add new rule`** set `Rule Number` as **`130`**, and update **`Port range`** with **`1024-65535`** then click on **`Save changes`**
+- After editing the `inbound rules`, now we must also edit `outbound rules` thus head to `Outbound rules` and click on **`Edit outbound rules`** and click on **`Add new rule`**
+- Then set `Rule Number` as **`110`** and `Type` must be **`HTTPS(443)`** and then click on **`Add new rule`** set `Rule Number` as **`120`** and `Type` must be **`Custom ICMP - IPv4`** and click on Save changes and then click on **`Add new rule`** set `Rule Number` as **`130`** and `Type` must be **`Custom TCP`** and update `Port range` as **`1024-65535`** and click on Save changes
+- And now we are good to go for `Subnet associations` and click on **`Edit subnet association`** and select `private subnets` and click on **`Save changes`**
 
 # <h3>Creating Security Groups:
 -  Head to **`Security groups`** under `Security` dropdown and click on **`Create security group`** on the top right of the page 
--  Set a security group name and choose the selected VPC and then click on **`Add rule`** for `Inbound rules` and update `Port range` with **`22`** and `Source` with **`My IP`** then click on **`Create security group`**
+-  Set a security group name for `public` and choose the selected VPC and then click on **`Add rule`** for `Inbound rules` and update `Port range` with **`22`** and `Source` with **`My IP`** then click on **`Create security group`**
+-  And we must also create an another security group for `private` and click on **`Create security group`** and set a security group name for `private` and choose the selected VPC and then click on **`Add rule`** for `Inbound rules` and update `Port range` with **`22`** and `Source` with **`192.168.0.0/24`** then click on **`Create security group`**
+-  Then head to Outbound rules and click on **`Edit outbound rules`** and click on `Add rule` and select **`HTTPS`** and **`All ICMP - IPv4`** for `Type` and **`0.0.0.0/0`** for `Destination` and then click on **`Save rules`**
 - The security group will be used for `Network Setting in EC2`
 
 # <h3>Spin VM - Launch Instance:
@@ -69,6 +80,12 @@ Note: Bastion-host is our VM - Bastion host has been used for private connectivi
 - And `Launch instance` must be initiated successfully!
 - Then click on `View all instances` to visualize the instance and its status
 - Make sure that `Instance state` is **`Running`**
+- Now we must create another instance for `private` and click on **`Launch instance`** and set a name and scroll down to **`Key Pair`** and choose **`bastion`** which is already created 
+- In Network Setting, click on **`Edit`** and choose the selected VPC then pick the `subnet` for **`private-1`** and Auto-assign public IP must be selected `Disable` by default
+- Then select **`Select existing security group`** and choose the `created security group for private` in Common security groups
+- Then click on **`Launch instance`**
+- Then click on `View all instances` to visualize the instance and its status
+- Make sure that `Instance state` is **`Running`**
 - **Now we are ready to test connectivity!**
 
 # <h3>Testing Connectivity:
@@ -76,3 +93,11 @@ Note: Bastion-host is our VM - Bastion host has been used for private connectivi
 - Open the terminal and run `ssh -i ~/Downloads/bashion.pem ec2-user@<the copied public IPv4 address>`
 - If you have permission issue due to read and write, please run `chmod 400 ~/Downloads/bastion.pem` to update your permission with **_`READ ONLY`_** then run `ssh -i ~/Downloads/bashion.pem ec2-user@<the copied public IPv4 address>` again to verify the connectivity!
 - In addition, you may also run `whoami` to verify **`ec2-user`**
+- After we created ec2 instance for private, we would **_NOT_** able to connect with the same way for **`Private IPv4`** for the instance that created for private. To achieve it, we need to do as follows;
+    - Open the terminal and run `ssh ec2-user@<Private IPv4 of Private ec2 instance>`
+  
+  **_Note: To run ssh, we may also follow the steps below;_**
+    - Open the terminal and run the following commands;
+    - `ssh-add -K ~/<Path of .pem file>`
+    - `ssh -A ec2-user@<Public IPv4 for public ec2 instance>`
+    - Then run `ip addr` and copy the ONLY and paste it search box in EC2 console and verify instance name with IP.
