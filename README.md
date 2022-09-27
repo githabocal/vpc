@@ -46,6 +46,11 @@ Notes:
 - Then head to **`Edit routes`** and click on **`Add route`** and set destination as **`0.0.0.0/0`** and target as the **`created internet gateway`** and click on **`Save changes`**
 - Then head to **`Subnet associations`** and click on **`Edit subnet associations`** and choose *all public subnets* which are *`public-1`* and *`public-2`* and then click on **`Save associations`**
 - And now, we must create another route table for private but before that, we must create **`Network ACLs`**
+- Once we create private route table, we must follow the same steps for private. The difference in private route table, while editing route, we must set destination as **`0.0.0.0/0`** same as public but target must be the **`created nat gateway`**
+
+# <h3>Creating NAT gateways:
+- Head to **`NAT gateways`** under `Virtual private cloud` dropdown and click on **`Create NAT table`** on the top right of the page
+- Set a name and select the proper subnet which is `public-2` for the current diagram then click on `Allocate Elastic IP` to assign an Elastic IP address to the NAT gateway and then click on **`Create NAT gateway`**
 
 # <h3>Creating Network ALCs(NACL):
 - Head to **`Network ACLs`** under `Security` dropdown and click on **`Create network ACL`** on the top right of the page
@@ -59,9 +64,14 @@ Notes:
 - Set `Rule Number` as **`110`**, and update **`Port range`** with **`22`** and `192.168.0.0/24` - for `Source`** and the click on **`Add new rule`**
 - And set `Rule Number` as **`120`**, and update **`Type`** with **`Custom ICMP - IPv4`** and click on **`Add new rule`** set `Rule Number` as **`130`**, and update **`Port range`** with **`1024-65535`** then click on **`Save changes`**
 - After editing the `inbound rules`, now we must also edit `outbound rules` thus head to `Outbound rules` and click on **`Edit outbound rules`** and click on **`Add new rule`**
-- Then set `Rule Number` as **`110`** and `Type` must be **`HTTPS(443)`** and then click on **`Add new rule`** set `Rule Number` as **`120`** and `Type` must be **`Custom ICMP - IPv4`** and click on Save changes and then click on **`Add new rule`** set `Rule Number` as **`130`** and `Type` must be **`Custom TCP`** and update `Port range` as **`1024-65535`** and click on Save changes
+- Then set `Rule Number` as **`110`** and `Type` must be **`HTTPS(443)`** and then click on **`Add new rule`** set `Rule Number` as **`120`** and `Type` must be **`Custom ICMP - IPv4`** and then click on **`Add new rule`** set `Rule Number` as **`130`** and `Type` must be **`Custom TCP`** and update `Port range` as **`1024-65535`** and click on **`Save changes`**
 - And now we are good to go for `Subnet associations` and click on **`Edit subnet association`** and select `private subnets` and click on **`Save changes`**
-
+- We also need to create a NACL for NAT gateway thus head to **`*Create network ACL`** and set a name and choose the selected VPC and then click on **`Create network ACL`**
+- Then set `Rule Number` as **`110`** and `Type` must be **`HTTPS(443)`** and Source must be **`192.168.0.0/24`** and then click on **`Add new rule`** set `Rule Number` as **`120`** and `Type` must be **`Custom TCP`** and `Port range` must be **`1024-65535`** and then click on **`Add new rule`** set `Rule Number` as **`130`** and `Type` must be **`Custom ICMP - IPv4`** and click on **`Save changes`**
+- Then we must also edit Outbound rules thus head to `Edit outbound rules` and click on `Add new rule`
+- Then set `Rule Number` as **`110`** and `Type` must be **`HTTPS(443)`** then click on **`Add new rule`** set `Rule Number` as **`120`** and `Type` must be **`Custom TCP`** and `Port range` must be **`1024-65535`** and Destination must be **`192.168.0.0/24`** and then click on **`Add new rule`** set `Rule Number` as **`130`** and `Type` must be **`Custom ICMP - IPv4`** and click on **`Save changes`**
+- Then head to Subnet associations and click on **`Edit subnet association`** and select `public-2` then click on **`Save changes`**
+  
 # <h3>Creating Security Groups:
 -  Head to **`Security groups`** under `Security` dropdown and click on **`Create security group`** on the top right of the page 
 -  Set a security group name for `public` and choose the selected VPC and then click on **`Add rule`** for `Inbound rules` and update `Port range` with **`22`** and `Source` with **`My IP`** then click on **`Create security group`**
@@ -101,3 +111,5 @@ Notes:
     - `ssh-add -K ~/<Path of .pem file>`
     - `ssh -A ec2-user@<Public IPv4 for public ec2 instance>`
     - Then run `ip addr` and copy the ONLY and paste it search box in EC2 console and verify instance name with IP.
+
+- At the end, we may run `ping 8.8.8.8` or `ping google.com` or `ping -c 3 amazon.com` in the terminal and verify **`0% packet loss`**
