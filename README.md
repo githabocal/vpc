@@ -109,7 +109,15 @@ Notes:
   **_Note: To run ssh, we may also follow the steps below;_** 
     - Open the terminal and run the following commands;
     - `ssh-add -K ~/<Path of .pem file>` --> adds pem file to ssh identity 
-    - `ssh -A ec2-user@<Public IPv4 for public ec2 instance>` --> Login to Instance
+    - `ssh -A ec2-user@<Public <img width="472" alt="Screen Shot 2022-09-27 at 1 45 25 AM" src="https://user-images.githubusercontent.com/86754468/192643108-2d73f9d5-c264-4eb5-a9be-7e1bf6ba864f.png">
+IPv4 for public ec2 instance>` --> Login to Instance
     - Then run `ip addr` and copy the ONLY IP and paste it search box in EC2 console and verify instance name with IP.
 
 - At the end, we may run `ping 8.8.8.8` or `ping google.com` or `ping -c 3 amazon.com` in the terminal and verify **`0% packet loss`**
+  
+  
+  ![Uploading Screen Shot 2022-09-27 at 1.45.25 AM.png…]()
+
+  ![Screen Shot 2022-09-27 at 2 25 03 AM](https://user-images.githubusercontent.com/86754468/192643157-9a096161-3ba7-4fea-8419-ff395076c5cf.png)
+
+  ![Screen Shot 2022-09-27 at 2 25 18 AM](https://user-images.githubusercontent.com/86754468/192643218-3c3c6288-f3a9-423b-bf87-3348c641a198.png)
