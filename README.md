@@ -6,6 +6,7 @@ The diagram attached below;
 
 
 First step to do is creating **`VPC`** then apply the necessary components of VPC that are as follows;
+- - <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#creating-vpc" target="_blank">*Virtual Private Cloud(VPC)*</a>
 - <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#creating-subnets" target="_blank">*Subnets*</a>
 - <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#creating-internet-gatewayigw" target="_blank">*Internet Gateways (igw)*</a>
 - <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#creating-route-tables" target="_blank">*Route Tables*</a>
