@@ -59,7 +59,7 @@ Notes:
 - Set `Rule Number` as **`110`**, and update **`Port range`** with **`22`** and `192.168.0.0/24` - for `Source`** and the click on **`Add new rule`**
 - And set `Rule Number` as **`120`**, and update **`Type`** with **`Custom ICMP - IPv4`** and click on **`Add new rule`** set `Rule Number` as **`130`**, and update **`Port range`** with **`1024-65535`** then click on **`Save changes`**
 - After editing the `inbound rules`, now we must also edit `outbound rules` thus head to `Outbound rules` and click on **`Edit outbound rules`** and click on **`Add new rule`**
-- Then set `Rule Number` as **`110`** and `Type` must be **`HTTPS(443)`** and then click on **`Add new rule`** set `Rule Number` as **`120`** and `Type` must be **`Custom ICMP - IPv4`** and click on Save changes
+- Then set `Rule Number` as **`110`** and `Type` must be **`HTTPS(443)`** and then click on **`Add new rule`** set `Rule Number` as **`120`** and `Type` must be **`Custom ICMP - IPv4`** and click on Save changes and then click on **`Add new rule`** set `Rule Number` as **`130`** and `Type` must be **`Custom TCP`** and update `Port range` as **`1024-65535`** and click on Save changes
 - And now we are good to go for `Subnet associations` and click on **`Edit subnet association`** and select `private subnets` and click on **`Save changes`**
 
 # <h3>Creating Security Groups:
