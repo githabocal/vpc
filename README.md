@@ -7,10 +7,10 @@ The diagram attached below;
 
 First step to do is creating **`VPC`** then apply the necessary components of VPC that are as follows;
 - <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#creating-subnets" target="_blank">*Subnets*</a>
-- *Internet Gateways (igw)*
-- *Route Tables*
-- *NAT Gateways*
-- *Network ACLs*
+- <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#creating-internet-gatewayigw" target="_blank">*Internet Gateways (igw)*</a>
+- <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#creating-route-tables" target="_blank">*Route Tables*</a>
+- <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#creating-nat-gateways" target="_blank">*NAT Gateways*</a>
+- <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#creating-network-alcsnacl" target="_blank">*Network ACLs*</a>
   
 Notes: 
 - Bastion-host is our VM - Bastion host has been used for private connectivity from public to private
