@@ -114,7 +114,7 @@ Notes:
   **_Note: To run ssh, we may also follow the steps below;_** 
     - Open the terminal and run the following commands;
     - `ssh-add -K ~/<Path of .pem file>` --> adds pem file to ssh identity 
-    - `ssh -A ec2-user@<Public <img width="472" alt="Screen Shot 2022-09-27 at 1 45 25 AM" src="https://user-images.githubusercontent.com/86754468/192643108-2d73f9d5-c264-4eb5-a9be-7e1bf6ba864f.png">
+    - `ssh -A ec2-user@<Public IPv4>
 IPv4 for public ec2 instance>` --> Login to Instance
     - Then run `ip addr` and copy the ONLY IP and paste it search box in EC2 console and verify instance name with IP.
 
