@@ -110,6 +110,6 @@ Notes:
     - Open the terminal and run the following commands;
     - `ssh-add -K ~/<Path of .pem file>`
     - `ssh -A ec2-user@<Public IPv4 for public ec2 instance>`
-    - Then run `ip addr` and copy the ONLY and paste it search box in EC2 console and verify instance name with IP.
+    - Then run `ip addr` and copy the ONLY IP and paste it search box in EC2 console and verify instance name with IP.
 
 - At the end, we may run `ping 8.8.8.8` or `ping google.com` or `ping -c 3 amazon.com` in the terminal and verify **`0% packet loss`**
