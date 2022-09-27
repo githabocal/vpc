@@ -15,7 +15,7 @@ First step to do is creating **`VPC`** then apply the necessary components of VP
 - <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#spin-vm---launch-instance" target="_blank">*Launch Instance*</a> 
 - <a href="https://github.com/githabocal/vpc/blob/vpc_setup/README.md#testing-connectivity" target="_blank">*Testing Connectivity*</a>  
   
-Notes: 
+**Notes:** 
 - Bastion-host is our VM - Bastion host has been used for private connectivity from public to private
 - NACL works in subnet level; not EC2 level
 
