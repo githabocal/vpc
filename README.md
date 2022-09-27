@@ -106,7 +106,7 @@ Notes:
 - After we created ec2 instance for private, we would **_NOT_** able to connect with the same way for **`Private IPv4`** for the instance that created for private. To achieve it, we need to do as follows;
     - Open the terminal and run `ssh ec2-user@<Private IPv4 of Private ec2 instance>` once logged into Bastion
   
-  **_Note: To run ssh, we may also follow the steps below;_**
+  **_Note: To run ssh, we may also follow the steps below;_** 
     - Open the terminal and run the following commands;
     - `ssh-add -K ~/<Path of .pem file>` --> adds pem file to ssh identity 
     - `ssh -A ec2-user@<Public IPv4 for public ec2 instance>` --> Login to Instance
