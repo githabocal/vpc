@@ -60,7 +60,7 @@ Notes:
 - And set `Rule Number` as **`120`**, and update **`Type`** with **`Custom ICMP - IPv4`** and click on **`Add new rule`** set `Rule Number` as **`130`**, and update **`Port range`** with **`1024-65535`** then click on **`Save changes`**
 - After editing the `inbound rules`, now we must also edit `outbound rules` thus head to `Outbound rules` and click on **`Edit outbound rules`** and click on **`Add new rule`**
 - Then set `Rule Number` as **`110`** and `Type` must be **`HTTPS(443)`** and then click on **`Add new rule`** set `Rule Number` as **`120`** and `Type` must be **`Custom ICMP - IPv4`** and click on Save changes
-- And now we are good to go for `Subnet associations` and head to `Subnet associations` and click on **`Edit subnet association`** and select `private subnets` and click on **`Save changes`**
+- And now we are good to go for `Subnet associations` and click on **`Edit subnet association`** and select `private subnets` and click on **`Save changes`**
 
 # <h3>Creating Security Groups:
 -  Head to **`Security groups`** under `Security` dropdown and click on **`Create security group`** on the top right of the page 
