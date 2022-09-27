@@ -51,7 +51,6 @@ Notes:
 # <h3>Creating NAT gateways:
 - Head to **`NAT gateways`** under `Virtual private cloud` dropdown and click on **`Create NAT table`** on the top right of the page
 - Set a name and select the proper subnet which is `public-2` for the current diagram then click on `Allocate Elastic IP` to assign an Elastic IP address to the NAT gateway and then click on **`Create NAT gateway`**
-- 
 
 # <h3>Creating Network ALCs(NACL):
 - Head to **`Network ACLs`** under `Security` dropdown and click on **`Create network ACL`** on the top right of the page
