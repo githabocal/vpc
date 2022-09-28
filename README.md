@@ -107,6 +107,8 @@ First step to do is creating **`VPC`** then apply the necessary components of VP
 - Make sure that `Instance state` is **`Running`**
 - **Now we are ready to test connectivity!**
 
+<a href="#top">Back to top</a>
+
 # <h3>Testing Connectivity:
 - Select the created instance and copy the **`Public IPv4 address`**
 - Open the terminal and run `ssh -i ~/Downloads/bashion.pem ec2-user@<the copied public IPv4 address>`
