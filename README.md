@@ -90,6 +90,8 @@ First step to do is creating **`VPC`** then apply the necessary components of VP
 - Then we must also edit Outbound rules thus head to `Edit outbound rules` and click on `Add new rule`
 - Then set `Rule Number` as **`110`** and `Type` must be **`HTTPS(443)`** then click on **`Add new rule`** set `Rule Number` as **`120`** and `Type` must be **`Custom TCP`** and `Port range` must be **`1024-65535`** and Destination must be **`192.168.0.0/24`** and then click on **`Add new rule`** set `Rule Number` as **`130`** and `Type` must be **`Custom ICMP - IPv4`** and click on **`Save changes`**
 - Then head to Subnet associations and click on **`Edit subnet association`** and select `public-2` then click on **`Save changes`**
+
+<a href="#top">Back to top</a>
   
 # <h3>Creating Security Groups:
 -  Head to **`Security groups`** under `Security` dropdown and click on **`Create security group`** on the top right of the page 
