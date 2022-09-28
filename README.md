@@ -29,6 +29,8 @@ First step to do is creating **`VPC`** then apply the necessary components of VP
 - Now **`VPC`** is created successfully
 - Next step is creating **`Subnets`**
 
+<a href="#top">Back to top</a>
+
 # <h3>Creating Subnets:
 - Head to **`Subnet`** under `Virtual private cloud` dropdown and click on **`Create subnet`** on the top right of the page
 - Choose the created VPC for **VPC ID**
@@ -43,11 +45,15 @@ First step to do is creating **`VPC`** then apply the necessary components of VP
 - 2(two) public and 2(two) private subnets have been created successfully!
 - After all, select subnet **`public-1`** and click on `Actions` dropdown and choose **`Edit subnet settings`**
 
+<a href="#top">Back to top</a>
+
 # <h3>Creating Internet Gateway(igw):
 - Head to **`Internet gateways`** under `Virtual private cloud` dropdown and click on **`Create internet gateway`** on the top right of the page
 - Then set a name for internet gateway and click on **`Create internet gateway`**
 - After creating a internet gateway, we must attach it to the **`created VPC`** and thus click on **Actions** dropdown and choose **`Attach to VPC`** then select the **`created VPC`** and click on **`Attach internet gateway`**
 - Then once you head to internet gateways, you must be able to verify that **`State is Attached`**
+
+<a href="#top">Back to top</a>
 
 # <h3>Creating Route Tables:
 - Head to **`Route tables`** under `Virtual private cloud` dropdown and click on **`Create route table`** on the top right of the page
@@ -57,9 +63,13 @@ First step to do is creating **`VPC`** then apply the necessary components of VP
 - And now, we must create another route table for private but before that, we must create **`Network ACLs`**
 - Once we create private route table, we must follow the same steps for private. The difference in private route table, while editing route, we must set destination as **`0.0.0.0/0`** same as public but target must be the **`created nat gateway`**
 
+<a href="#top">Back to top</a>
+
 # <h3>Creating NAT gateways:
 - Head to **`NAT gateways`** under `Virtual private cloud` dropdown and click on **`Create NAT table`** on the top right of the page
 - Set a name and select the proper subnet which is `public-2` for the current diagram then click on `Allocate Elastic IP` to assign an Elastic IP address to the NAT gateway and then click on **`Create NAT gateway`**
+
+<a href="#top">Back to top</a>
 
 # <h3>Creating Network ALCs(NACL):
 - Head to **`Network ACLs`** under `Security` dropdown and click on **`Create network ACL`** on the top right of the page
@@ -88,6 +98,8 @@ First step to do is creating **`VPC`** then apply the necessary components of VP
 -  Then head to Outbound rules and click on **`Edit outbound rules`** and click on `Add rule` and select **`HTTPS`** and **`All ICMP - IPv4`** for `Type` and **`0.0.0.0/0`** for `Destination` and then click on **`Save rules`**
 - The security group will be used for `Network Setting in EC2`
 
+<a href="#top">Back to top</a>
+
 # <h3>Spin VM - Launch Instance:
 - Head to **`EC2`** in AWS then click on **`Launch Instance`**
 - Set a name for EC2 and scroll down to **`Key pair`** then click on **`Create new key pair`**
@@ -107,10 +119,7 @@ First step to do is creating **`VPC`** then apply the necessary components of VP
 - Make sure that `Instance state` is **`Running`**
 - **Now we are ready to test connectivity!**
   
-<div class = "right">
-  <a href="#top">Back to top</a>
-</div>
-
+<a href="#top">Back to top</a>
 
 # <h3>Testing Connectivity:
 - Select the created instance and copy the **`Public IPv4 address`**
@@ -134,3 +143,6 @@ IPv4 for public ec2 instance>` --> Login to Instance
   ![Screen Shot 2022-09-27 at 2 25 03 AM](https://user-images.githubusercontent.com/86754468/192643157-9a096161-3ba7-4fea-8419-ff395076c5cf.png)
 
   ![Screen Shot 2022-09-27 at 2 25 18 AM](https://user-images.githubusercontent.com/86754468/192643218-3c3c6288-f3a9-423b-bf87-3348c641a198.png)
+
+
+  <a href="#top">Back to top</a>
