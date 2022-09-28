@@ -106,8 +106,11 @@ First step to do is creating **`VPC`** then apply the necessary components of VP
 - Then click on `View all instances` to visualize the instance and its status
 - Make sure that `Instance state` is **`Running`**
 - **Now we are ready to test connectivity!**
+  
+<div class = "right">
+  <a href="#top">Back to top</a>
+</div>
 
-<a align = "center" href="#top">Back to top</a>
 
 # <h3>Testing Connectivity:
 - Select the created instance and copy the **`Public IPv4 address`**
