@@ -34,16 +34,28 @@ First step to do is creating **`VPC`** then apply the necessary components of VP
 # <h3>Creating Subnets:
 - Head to **`Subnet`** under `Virtual private cloud` dropdown and click on **`Create subnet`** on the top right of the page
 - Choose the created VPC for **VPC ID**
-- Then set a subnet name for *`public-1`* and availability zone **`us-east-1a`** then choose **`IPv4 CIDR block`** as **`192.168.0.0/26`**
-- Then click on **`Add new subnet`** to add second public subnet
-- Then set a subnet name for *`public-2`* and availability zone **`us-east-1b`** then choose **`IPv4 CIDR block`** as **`192.168.0.64/26`**
-- Then click on **`Add new subnet`** to add first private subnet
-- Then set a subnet name for *`private-1`* and availability zone **`us-east-1a`** then choose **`IPv4 CIDR block`** as **`192.168.0.128/26`**
-- Then click on **`Add new subnet`** to add second private subnet
-- Then set a subnet name for *`private-2`* and availability zone **`us-east-1b`** then choose **`IPv4 CIDR block`** as **`192.168.0.192/26`**
-- Then click on **`Create subnet`** button
+- Then set as follows;
+  - `subnet name`: **`public-1`**
+  - `Availability zone`: **`us-east-1a`** 
+  - `IPv4 CIDR block`: **`192.168.0.0/26`**
+  - then click on **`Add new subnet`** to add second public subnet
+- Then set as follows;
+  - `subnet name`: **`public-2`**
+  - `Availability zone`: **`us-east-1b`** 
+  - `IPv4 CIDR block`: **`192.168.0.64/26`**
+  - then click on **`Add new subnet`** to add first private subnet
+- Then set as follows;
+  - `subnet name`: **`private-1`** 
+  - `Availability zone`: **`us-east-1a`** 
+  - `IPv4 CIDR block`: **`192.168.0.128/26`**
+  - then click on **`Add new subnet`** to add second private  subnet
+- Then set as follows;
+  - `subnet name`: **`private-2`** 
+  - `Availability zone`: **`us-east-1b`**
+  - `IPv4 CIDR block`: **`192.168.0.192/26`**
+  - then click on **`Create subnet`** button
 - 2(two) public and 2(two) private subnets have been created successfully!
-- After all, select subnet **`public-1`** and click on `Actions` dropdown and choose **`Edit subnet settings`**
+- After all, select subnet **`public-1`** and click on `Actions` dropdown and choose **`Edit subnet settings`** and click on `Enable auto-assign public IPv4 address` and then **`Save`**
 
 <a href="#top">Back to top</a>
 
