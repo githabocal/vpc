@@ -75,21 +75,80 @@ First step to do is creating **`VPC`** then apply the necessary components of VP
 - Head to **`Network ACLs`** under `Security` dropdown and click on **`Create network ACL`** on the top right of the page
 - Then set a name as **`NACL-public-1`** and choose the selected VPC then click on **`Create network ACL`**
 - And now, we must modify the created NACL, thus we need to head to **`Inbound rules`** and click on **`Edit inbound rules`** then click on **`Add new rule`**
-- Set `Rule Number` as **`110`**, and update **`Port range`** with **`22`** and we use our **local public IP - `108.53.13.199/32` - for `Source`** and the click on **`Save changes`**
+- Set as follows;
+    - `Rule Number`: **`110`**
+    - `Port range`: **`22`**
+    - `Source`: **local public IP** - **`108.53.13.199/32`**
+    - then click on **`Save changes`**
 - Head to **`Outbound rules`** and click on **`Edit outbound rules`** the click on **`Add new rule`**
-- Set `Rule number` as **`110`**, and update **`Port range`** with **`1024-65535`** and we use our **local public IP - `108.53.13.199/32` - for `Source`** and the click on **`Save changes`**
+- Set as follows;
+    - `Rule number`: **`110`**
+    - `Port range`: **`1024-65535`** 
+    - `Source`: **local public IP** - **`108.53.13.199/32`**
+    - and then click on **`Save changes`**
 - Click on **`Create network ACL`** to create private NACL then set a name and choose the selected VPC and click on **`Create network ACL`**
 - And now, we must modify the created NACL, thus we need to head to **`Inbound rules`** and click on **`Edit inbound rules`** then click on **`Add new rule`**
-- Set `Rule Number` as **`110`**, and update **`Port range`** with **`22`** and `192.168.0.0/24` - for `Source`** and the click on **`Add new rule`**
-- And set `Rule Number` as **`120`**, and update **`Type`** with **`Custom ICMP - IPv4`** and click on **`Add new rule`** set `Rule Number` as **`130`**, and update **`Port range`** with **`1024-65535`** then click on **`Save changes`**
+- Set as follows;
+    -  `Rule Number`: **`110`**
+    -  `Port range`: **`22`**
+    -  `Source`: **`192.168.0.0/24`**
+    -  and then click on **`Add new rule`**
+- And set as follows;
+    - `Rule Number`: **`120`**
+    - `Type`: **`Custom ICMP - IPv4`** 
+    - and then click on **`Add new rule`** 
+- And set as follows;
+    -  `Rule Number`: **`130`**
+    -  `Port range`: **`1024-65535`** 
+    -  and then click on **`Save changes`**
 - After editing the `inbound rules`, now we must also edit `outbound rules` thus head to `Outbound rules` and click on **`Edit outbound rules`** and click on **`Add new rule`**
-- Then set `Rule Number` as **`110`** and `Type` must be **`HTTPS(443)`** and then click on **`Add new rule`** set `Rule Number` as **`120`** and `Type` must be **`Custom ICMP - IPv4`** and then click on **`Add new rule`** set `Rule Number` as **`130`** and `Type` must be **`Custom TCP`** and update `Port range` as **`1024-65535`** and click on **`Save changes`**
+- Then set as follows;
+    - `Rule Number`: **`110`**
+    - `Type`: **`HTTPS(443)`** 
+    - and then click on **`Add new rule`** 
+- And set as folows;
+    -  `Rule Number`: **`120`**
+    -  `Type`: **`Custom ICMP - IPv4`** 
+    -  and then click on **`Add new rule`** 
+- And set as follows
+    -  `Rule Number`: **`130`** 
+    -  `Type`: **`Custom TCP`** 
+    -  `Port range`: **`1024-65535`** 
+    -  and then click on **`Save changes`**
 - And now we are good to go for `Subnet associations` and click on **`Edit subnet association`** and select `private subnets` and click on **`Save changes`**
-- We also need to create a NACL for NAT gateway thus head to **`*Create network ACL`** and set a name and choose the selected VPC and then click on **`Create network ACL`**
-- Then set `Rule Number` as **`110`** and `Type` must be **`HTTPS(443)`** and Source must be **`192.168.0.0/24`** and then click on **`Add new rule`** set `Rule Number` as **`120`** and `Type` must be **`Custom TCP`** and `Port range` must be **`1024-65535`** and then click on **`Add new rule`** set `Rule Number` as **`130`** and `Type` must be **`Custom ICMP - IPv4`** and click on **`Save changes`**
+- We also need to create a NACL for NAT gateway thus head to **`*Create network ACL`** 
+- And set a name and choose the selected VPC and then click on **`Create network ACL`**
+- Then set as follows;
+    -  `Rule Number`: **`110`**
+    -  `Type`: **`HTTPS(443)`**
+    -  `Source`: **`192.168.0.0/24`** 
+    -  and then click on **`Add new rule`**   
+-  And set as follows;
+   -  `Rule Number`: **`120`** 
+   -  `Type`: **`Custom TCP`** 
+   -  `Port range`: **`1024-65535`** 
+   -  and then click on **`Add new rule`** 
+-  And set as follows;
+   -  `Rule Number`: **`130`**
+   -  `Type`: **`Custom ICMP - IPv4`** 
+   -   and click on **`Save changes`**
 - Then we must also edit Outbound rules thus head to `Edit outbound rules` and click on `Add new rule`
-- Then set `Rule Number` as **`110`** and `Type` must be **`HTTPS(443)`** then click on **`Add new rule`** set `Rule Number` as **`120`** and `Type` must be **`Custom TCP`** and `Port range` must be **`1024-65535`** and Destination must be **`192.168.0.0/24`** and then click on **`Add new rule`** set `Rule Number` as **`130`** and `Type` must be **`Custom ICMP - IPv4`** and click on **`Save changes`**
-- Then head to Subnet associations and click on **`Edit subnet association`** and select `public-2` then click on **`Save changes`**
+- Then set as follows;
+    - `Rule Number`: **`110`** 
+    - `Type`: **`HTTPS(443)`** 
+    - and then click on **`Add new rule`** 
+- And set as follows;
+    - `Rule Number`: **`120`**  
+    - `Type`: **`Custom TCP`**  
+    - `Port range`: **`1024-65535`** 
+    - `Destination`: **`192.168.0.0/24`** 
+    - and then click on **`Add new rule`** 
+- And set as follows;
+    -  `Rule Number`: **`130`** 
+    -  `Type`: **`Custom ICMP - IPv4`** 
+    -  and click on **`Save changes`**
+- Then head to Subnet associations and click on **`Edit subnet association`** and select `public-2` 
+- And then click on **`Save changes`**
 
 <a href="#top">Back to top</a>
   
