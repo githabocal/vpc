@@ -154,8 +154,17 @@ First step to do is creating **`VPC`** then apply the necessary components of VP
   
 # <h3>Creating Security Groups:
 -  Head to **`Security groups`** under `Security` dropdown and click on **`Create security group`** on the top right of the page 
--  Set a security group name for `public` and choose the selected VPC and then click on **`Add rule`** for `Inbound rules` and update `Port range` with **`22`** and `Source` with **`My IP`** then click on **`Create security group`**
--  And we must also create an another security group for `private` and click on **`Create security group`** and set a security group name for `private` and choose the selected VPC and then click on **`Add rule`** for `Inbound rules` and update `Port range` with **`22`** and `Source` with **`192.168.0.0/24`** then click on **`Create security group`**
+-  Set a security group name for `public` and choose the selected VPC 
+-  and then click on **`Add rule`** for `Inbound rules` 
+-  then set as follows;
+   -  `Port range`: **`22`** 
+   -  `Source`: **`My IP`** 
+   -  then click on **`Create security group`**
+-  And we must also create an another security group for `private` and click on **`Create security group`** and set a security group name for `private` and choose the selected VPC and then click on **`Add rule`** for `Inbound rules` 
+-  then set as follows;
+   -  `Port range`: **`22`**  
+   -  `Source`: **`192.168.0.0/24`** 
+   -  then click on **`Create security group`**
 -  Then head to Outbound rules and click on **`Edit outbound rules`** and click on `Add rule` and select **`HTTPS`** and **`All ICMP - IPv4`** for `Type` and **`0.0.0.0/0`** for `Destination` and then click on **`Save rules`**
 - The security group will be used for `Network Setting in EC2`
 
