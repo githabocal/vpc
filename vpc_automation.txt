@@ -1,0 +1,13 @@
+Notes:
+
+    - IAC (Infrastructure as Code) --> Immutable Infrastructure
+    - IAC tools --> Terraform, CloudFormation
+    - CloudFormation is AWS native, built in, in house tool
+    - CF supports 2 languages: JSON and YAML(Yet Another Markup Language)
+
+Build VPC:
+- 4 subnets
+    - 2 public
+    - 2 private
+- Internet Gateway
+- Route tables
