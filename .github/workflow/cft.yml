@@ -5,7 +5,7 @@ on:
     branches:
       - feature/**
     pull_request:
-      - master
+      - main
 
 jobs:
   cft-actions:
