@@ -1,0 +1,20 @@
+name: cft-deploy
+
+on:
+  push:
+    branches:
+      - feature/**
+    pull_request:
+      - master
+
+jobs:
+  cft-actions:
+    name: cft-deploy
+    runs-on: self-hosted
+
+    steps:
+    - name: checkout repository
+      uses: actions/checkout@master
+
+    - name: Deploy CFT to aws in us-east-1
+      run: aws cloudformation deploy --template-file vpc_iac.json --stack-name vpc-stack --parameter-overrides KeyName=bastion
