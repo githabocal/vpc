@@ -147,5 +147,14 @@
                 "GatewayId": {"Ref": "igw"}
             }
         }
+    },
+    "Outputs": {
+        "vpc1": {
+            "Description": "Return output of vpc",
+            "Value": {"Ref": "vpc1"},
+            "Export": {
+                "Name": "cft-vpc"
+            }
+        }
     }
 }
