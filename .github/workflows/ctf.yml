@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - feature/**
-    pull_request:
-      
+  pull_request:
+
 
 jobs:
   cft-actions:
