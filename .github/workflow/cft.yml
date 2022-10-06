@@ -16,5 +16,14 @@ jobs:
     - name: checkout repository
       uses: actions/checkout@master
 
+    - name: Install aws cli on Ubuntu
+      run: curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+    - name: Unzip the package
+      run: unzip awscliv2.zip
+
+    - name: Start the command
+      run: sudo ./aws/install
+
     - name: Deploy CFT to aws in us-east-1
       run: aws cloudformation deploy --template-file vpc_iac.json --stack-name vpc-stack --parameter-overrides KeyName=bastion
