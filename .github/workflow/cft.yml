@@ -3,7 +3,7 @@ name: cft-deploy
 on:
   push:
     branches:
-      - feature/cft-dev
+      - feature/**
     pull_request:
       
 
