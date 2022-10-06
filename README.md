@@ -206,7 +206,7 @@ First step to do is creating **`VPC`** then apply the necessary components of VP
 # <h3>Testing Connectivity:
 - Select the created instance and copy the **`Public IPv4 address`**
 - Open the terminal and run `ssh -i ~/Downloads/bastion.pem ec2-user@<the copied public IPv4 address>`
-- If you have permission issue due to read and write, please run `chmod 400 ~/Downloads/bastion.pem` to update your permission with **_`READ ONLY`_** then run `ssh -i ~/Downloads/bastion.pem ec2-user@<the copied public IPv4 address>` again to verify the connectivity!
+- If you have permission issue due to read and write, please run `chmod 400 ~/Downloads/bastion.pem` to update your permission with **_`READ ONLY`_** then run `ssh -i ~/Downloads/bastion.pem ec2-user@<public IPv4 address>` again to verify the connectivity!
 - In addition, you may also run `whoami` to verify **`ec2-user`**
 - After we created ec2 instance for private, we would **_NOT_** able to connect with the same way for **`Private IPv4`** for the instance that created for private. To achieve it, we need to do as follows;
     - Open the terminal and run `ssh ec2-user@<Private IPv4 of Private ec2 instance>` once logged into Bastion
