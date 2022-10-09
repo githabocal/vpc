@@ -1,0 +1,139 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "This template builds VPC",
+    "Parameters": {
+        "KeyName": {
+            "Description": "This key will be used to SSH to our EC2 instance",
+            "Type": "AWS::EC2::KeyPair::KeyName"
+        }
+    },
+    "Resources": {
+        "vpc2": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": "10.0.0.0/16",
+                "EnableDnsHostnames": true,
+                "EnableDnsSupport": true,
+                "InstanceTenancy": "default",
+                "Tags": [
+                    {
+                        "Key": "Name", 
+                        "Value": "cft-vpc"
+                    },
+                    {
+                        "Key": "Environment", 
+                        "Value": "dev"
+                    }
+                ]
+            }
+        },
+            "vpc2SubnetPublic1": {
+                "Type": "AWS::EC2::Subnet",
+                "Properties": {
+                    "CidrBlock": "10.0.1.0/24",
+                    "VpcId": {"Ref": "vpc2"},
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "SubnetPublic1"
+                        }
+                    ],
+                    "MapPublicIpOnLaunch": true,
+                    "AvailabilityZone": {
+                        "Fn::Select": [
+                            "0",
+                            {
+                                "Fn::GetAZs":""
+                            }
+                        ]
+                    }
+                }
+            },
+            "vpc2SubnetPublic2": {
+                "Type": "AWS::EC2::Subnet",
+                "Properties": {
+                    "CidrBlock": "10.0.2.0/24",
+                    "VpcId": {"Ref": "vpc2"},
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "SubnetPublic2"
+                        }
+                    ],
+                    "MapPublicIpOnLaunch": true,
+                    "AvailabilityZone": {
+                        "Fn::Select": [
+                            "1",
+                            {
+                                "Fn::GetAZs":""
+                            }
+                        ]
+                    }
+                }
+            },
+            "vpc2SubnetPrivate1": {
+                "Type": "AWS::EC2::Subnet",
+                "Properties": {
+                    "CidrBlock": "10.0.3.0/24",
+                    "VpcId": {"Ref": "vpc2"},
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "SubnetPrivate1"
+                        }
+                    ],
+                    "MapPublicIpOnLaunch": false,
+                    "AvailabilityZone": {
+                        "Fn::Select": [
+                            "0",
+                            {
+                                "Fn::GetAZs":""
+                            }
+                        ]
+                    }
+                }
+            },
+            "vpc2SubnetPrivate2": {
+                "Type": "AWS::EC2::Subnet",
+                "Properties": {
+                    "CidrBlock": "10.0.4.0/24",
+                    "VpcId": {"Ref": "vpc2"},
+                    "Tags": [
+                        {
+                            "Key": "Name",
+                            "Value": "SubnetPrivate2"
+                        }
+                    ],
+                    "MapPublicIpOnLaunch": false,
+                    "AvailabilityZone": {
+                        "Fn::Select": [
+                            "1",
+                            {
+                                "Fn::GetAZs":""
+                            }
+                        ]
+                    }
+                }
+            },
+            "igw": {
+                "Type":"AWS::EC2::InternetGateway",
+                "DependsOn": "vpc2",
+                "Properties": {
+                    "Tags":[
+                        {
+                            "Key": "Name",
+                            "Value": "vpc-igw"
+                        }
+                    ]
+                }
+            },
+            "igwAttachment": {
+                "Type": "AWS::EC2::VPCGatewayAttachment",
+                "Properties": {
+                    "InternetGateway": {"Ref": "igw"},
+                    "VpcId": {"Ref": "vpc2"}
+                }
+            }
+        }
+    
+}

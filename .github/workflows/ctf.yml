@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - feature/**
-    pull_request:
-      
+  pull_request:
+
 
 jobs:
   cft-actions:
@@ -34,6 +34,13 @@ jobs:
 
     - name: Start the command
       run: sudo ./aws/install
+      continue-on-error: true
+
+#     # - name: Delete the stack
+#     #   run:  aws cloudformation delete-stack --stack-name vpc-stack
+
+#     # - name: Deploy CFT to aws in us-east-1
+#     #   run: aws cloudformation deploy --template-file vpc_iac.json --stack-name vpc-stack --parameter-overrides KeyName=bastion
 
     - name: Deploy CFT to aws in us-east-1
       run: aws cloudformation deploy --template-file vpc_iac.json --stack-name vpc-stack --parameter-overrides KeyName=bastion
